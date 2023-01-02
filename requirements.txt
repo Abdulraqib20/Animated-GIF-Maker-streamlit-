@@ -1,7 +1,7 @@
 streamlit == 1.15.0
 os-sys == 2.1.4
 pybase64 == 1.2.3
-tempfile
+temp == 2020.7.2
 Pillow == 9.3.0
 numpy == 1.23.5
 moviepy == 1.0.3
