@@ -5,3 +5,4 @@ tempfile
 Pillow == 9.3.0
 numpy == 1.23.5
 moviepy == 1.0.3
+imageio == 2.23.0
