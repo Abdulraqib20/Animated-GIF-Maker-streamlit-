@@ -1,5 +1,5 @@
 streamlit == 1.15.0
-os == 2.1.4
+os-sys
 pybase64 == 1.2.3
 temp == 2020.7.2
 Pillow == 9.3.0
