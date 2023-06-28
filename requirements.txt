@@ -2,7 +2,6 @@ streamlit
 Pillow
 numpy
 moviepy
-tempfile
 PIL
 moviepy.editor
 moviepy.video.fx.all
