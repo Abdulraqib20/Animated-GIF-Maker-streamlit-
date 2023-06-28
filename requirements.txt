@@ -2,7 +2,6 @@ streamlit
 Pillow
 numpy
 moviepy
-base64
 tempfile
 PIL
 moviepy.editor
