@@ -3,5 +3,3 @@ Pillow
 numpy
 moviepy
 PIL
-moviepy.editor
-moviepy.video.fx.all
