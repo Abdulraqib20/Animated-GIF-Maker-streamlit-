@@ -45,7 +45,7 @@ if uploaded_file is not None:
     selected_export_range = st.sidebar.slider('Duration range to export', 0, int(st.session_state.clip_duration), (0, int(st.session_state.clip_duration)))
     
     # Resizing of video
-    clip = clip.resize(selected_resolution_scaling)
+    clip = clip.resize(selected_resolution_scaling, method="antialias")
     
     st.session_state.clip_width = clip.w
     st.session_state.clip_height = clip.h
