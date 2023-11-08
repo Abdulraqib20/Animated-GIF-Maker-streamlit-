@@ -28,9 +28,9 @@ uploaded_file = st.sidebar.file_uploader('Choose a file', type=['mov', 'mp4'])
 # [Download example file](https://github.com/dataprofessor/animated-gif/raw/master/example/streamlit-app-starter-kit-screencast.mov)
 # ''')
 
-## display gif generation parameters once file has been
+## display gif generation parameters once file has been uploaded
 if uploaded_file is not None:
-     ## save to temp file
+    ## save to a temp file
     tfile = tempfile.NamedTemporaryFile(delete=False)
     tfile.write(uploaded_file.read())
 
@@ -42,7 +42,7 @@ if uploaded_file is not None:
     st.sidebar.header('Input parameters')
     selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5)
     selected_speedx = st.sidebar.slider('Playback speed', 0.25, 5.0, 1.0)
-    selected_export_range = st.sidebar.slider('Duration range to export', 0, int(st.session_state.clip_duration), (0, int(st.session_state.clip_duration)))
+    selected_export_range = st.sidebar.slider('Duration range to export', 0, int(st.session_state.clip_duration), (0, int(st.session_state.clip_duration))
     
     # Resizing of video
     clip = clip.resize(selected_resolution_scaling, method="antialias")
@@ -74,9 +74,9 @@ if uploaded_file is not None:
     # Print image parameters
     st.subheader('Image parameters')
     with st.expander('Show image parameters'):
-        st.write('File Name: {}'.format(uploaded_file.name))
+        st.write('File Name:', uploaded_file.name)
         st.write('Image size:', frame_image.size)
-        st.write('Video resolution scaling', selected_resolution_scaling)
+        st.write('Video resolution scaling:', selected_resolution_scaling)
         st.write('Speed playback:', selected_speedx)
         st.write('Export duration:', selected_export_range)
         st.write('Frames per seconds (FPS):', st.session_state.clip_fps)
@@ -97,7 +97,7 @@ if uploaded_file is not None:
             im = Image.fromarray(frame)
             image_list.append(im)
         
-        image_list[0].save('export.gif', format='GIF', save_all = True, loop = 0, append_images = image_list)
+        image_list[0].save('export.gif', format='GIF', save_all=True, loop=0, append_images=image_list)
         
         # Download
         st.subheader('Download')
@@ -107,11 +107,11 @@ if uploaded_file is not None:
         data_url = base64.b64encode(contents).decode('utf-8')
         file_.close()
         st.markdown(
-            f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-            unsafe_allow_html = True,
+            f'<img src="data:image/gif;base64,{data_url}" alt="animated gif">',
+            unsafe_allow_html=True,
         )
         
-        fsize = round(os.path.getsize('export.gif')/(1024*1024), 1)
+        fsize = round(os.path.getsize('export.gif') / (1024 * 1024), 1)
         st.info('File size of generated GIF: {} MB'.format(fsize))
         
         fname = uploaded_file.name.split('.')[0]
@@ -119,7 +119,5 @@ if uploaded_file is not None:
             btn = st.download_button(label='Download Image', data=file, file_name=f'{fname}_scaling-{selected_resolution_scaling}_fps',
                                     mime='image/gif')
 
-            
 else:
     st.warning('Upload a correct video file')
-        
